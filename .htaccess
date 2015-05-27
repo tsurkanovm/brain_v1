@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.+)$ /brain_v1/index.php/$1

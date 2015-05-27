@@ -1,0 +1,49 @@
+use brain;
+create database brain;
+
+ CREATE TABLE IF NOT EXISTS `user_role`
+ ( `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT ,
+ `title` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+ primary key (`id`) )
+ ENGINE = MyISAM;
+
+CREATE TABLE IF NOT EXISTS `users`
+ ( `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT ,
+ `title` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL UNIQUE,
+  `psw` VARCHAR(60) NOT NULL,
+  `user_id` TINYINT UNSIGNED NOT NULL default 1 ,
+ primary key (`id`) )
+  ENGINE = MyISAM;
+
+  CREATE TABLE IF NOT EXISTS `tests`
+   ( `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT ,
+   `title` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+   primary key (`id`) )
+   ENGINE = MyISAM;
+
+
+  CREATE TABLE IF NOT EXISTS `tests_param`
+    ( `id` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT ,
+    `title` VARCHAR(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL UNIQUE,
+    `id_test` TINYINT UNSIGNED NOT NULL,
+    `answer` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci default NULL,
+    primary key (`id`) )
+    ENGINE = MyISAM;
+
+    CREATE TABLE IF NOT EXISTS `results`
+        ( `id` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT ,
+        `title` DATE NOT NULL
+        `id_test` TINYINT UNSIGNED NOT NULL,
+        `id_user` TINYINT UNSIGNED NOT NULL,
+        `date_participation` DATE,
+        primary key (`id`) )
+        ENGINE = MyISAM;
+
+
+ALTER TABLE `tests_param` modify `id` MEDIUMINT -- изменение типа столбца
+ALTER TABLE `tests_param` CHANGE `parameter` `title` VARCHAR(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;-- изменение имени столбца
+
+    INSERT INTO `user_role` VALUES ( NULL, 'base' ), ( NULL, 'advance' ), ( NULL, 'full' );
+
+    INSERT INTO `tests` VALUES ( NULL, 'exercise' ), ( NULL, 'color' ), ( NULL, 'words' );
+    INSERT INTO `tests_param` VALUES ( NULL, 1, '8 * 6', '48'  ), ( NULL, 1, '5 + 3', '8'  ), ( NULL, 1, '9 * 6', '54'  ), ( NULL, 1, '9 + 8', '17'  ), ( NULL, 1, '1 * 6', '6' );

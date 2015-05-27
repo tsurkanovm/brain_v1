@@ -1,0 +1,43 @@
+
+
+<div id="findingBlock">
+    <form action="run.php" method="post">
+        <fieldset>
+            <legend> Найти товар по коду </legend>
+            <input type="text" title="Код товара" alt="Код товара" name="item"  maxlength="8"/>
+            <input type="hidden" name="method"  value="findItem"/>
+            <input type="submit" name="find" value="Найти"/>
+        </fieldset>
+    </form>
+</div>
+<div id="registrationBlock">
+    <form action="run.php" method="post">
+        <fieldset>
+            <legend> Регистрация нового товара </legend>
+
+            <label for="item"> Код товара: </label>
+            <input id="item" type="text" name="item"  maxlength="8"/>
+            <br>
+
+            <label for="name_item"> Название товара: </label>
+            <input id="name_item" type="text" name="name_item"  maxlength="20"/>
+            <br>
+
+            <label for="produce_item"> Производитель товара: </label>
+            <input id="produce_item" type="text" name="produce_item"  maxlength="50"/>
+            <br>
+
+            Описание товара:
+            <br>
+            <textarea id="desc_item" name="desc_item" cols="47" rows="5" maxlength="100"></textarea>
+
+            <input type="hidden" name="method"  value="addNewItem"/>
+            <br>
+            <br>
+            <input id="registrationButton" type="submit" name="add" value="Зарегистрировать новый товар"/>
+        </fieldset>
+    </form>
+</div>
+
+
+</body>
